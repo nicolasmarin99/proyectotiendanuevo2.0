@@ -1,0 +1,98 @@
+<ion-header >
+  <ion-toolbar>
+    <div class="color-rojo">
+      <ion-title class="centrar">Producto</ion-title>
+    </div>
+    
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor-logo margin-auto">
+    <img class="img-logo" src="assets/logo/logo.png" alt="">
+  </div>
+
+  <div class="linea margin-auto bordear">
+    <div class="contenedor-cards bordear">
+      <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla bordear"></div>
+
+      <div class="centrar">
+
+        <p class="letras-negrita">RDB Game Hombre Celeste</p>
+        <p class="letras-negrita">Puma</p>
+      </div>
+
+      <div class="contenedor-lista margin-auto">
+        <ion-list class="sin-padding">
+          <ion-item>
+            <ion-select aria-label="Talla" interface="action-sheet" placeholder="Talla (US)">
+              <ion-select-option value="7.5">7.5 (25.5 cms)</ion-select-option>
+              <ion-select-option value="8">8 (26 cms)</ion-select-option>
+              <ion-select-option value="8.5">8.5 (26.5 cms)</ion-select-option>
+              <ion-select-option value="9">9 (27 cms)</ion-select-option>
+              <ion-select-option value="9.5">9.5 (27.5 cms)</ion-select-option>
+              <ion-select-option value="10">10 (28 cms)</ion-select-option>
+              <ion-select-option value="10.5">10.5 (28.5 cms)</ion-select-option>
+              <ion-select-option value="11">11 (29 cms)</ion-select-option>
+              <ion-select-option value="11.5">11.5 (29.5 cms)</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+      <hr>
+      <div class="contenedor-lista margin-auto">
+        <ion-list class="sin-padding">
+          <ion-item>
+            <ion-select aria-label="Cantidad" interface="action-sheet" placeholder="Cantidad">
+              <ion-select-option value="1">1 Unidad.</ion-select-option>
+              <ion-select-option value="2">2 Unidades.</ion-select-option>
+              <ion-select-option value="3">3 Unidades.</ion-select-option>
+              <ion-select-option value="4">4 Unidades.</ion-select-option>
+              <ion-select-option value="5">5 Unidades.</ion-select-option>
+              <ion-select-option value="6">6 Unidades.</ion-select-option>
+              <ion-select-option value="7">7 Unidades.</ion-select-option>
+              <ion-select-option value="8">8 Unidades.</ion-select-option>
+              <ion-select-option value="9">9 Unidades.</ion-select-option>
+              <ion-select-option value="10">10 Unidades.</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+        <div class="centrar">
+          <p class="letras-negrita letras-grandes">$33.590</p>
+        </div>
+        <div class="contenedor-compra centrar margin-auto">
+          <ion-button>
+            <ion-icon slot="start" name="cart"></ion-icon>
+            Comprar
+          </ion-button>
+        </div>
+
+      
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer class="color-rojo">
+  <ion-toolbar>
+    <div class="contenedor-flex">
+      <div class="contenedor-footer" (click)="irInicio()">
+        <img src="assets/inicio.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer">
+        <img src="assets/zapatilogo.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer arreglar-lista">
+        <img src="assets/pedido.png" alt="" class="tamano-general-imagenes">
+  
+      </div>
+      <div class="contenedor-footer">
+        <img src="assets/perfil.png" alt="" class="tamano-general-imagenes">
+      </div>
+    </div>  
+  </ion-toolbar>
+</ion-footer>

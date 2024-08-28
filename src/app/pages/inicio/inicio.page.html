@@ -1,0 +1,98 @@
+<ion-header >
+  <ion-toolbar>
+    <div>
+      <ion-title class="centrar">Bienvenido</ion-title>
+    </div>
+    
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor-logo margin-auto">
+    <img class="img-logo" src="assets/logo/logo.png" alt="">
+  </div>
+  <div class="cuadrado-busqueda margin-auto contenedor-flex">
+    <input type="text" class="barra-busqueda margin-auto" placeholder="Buscar zapatilla..." [(ngModel)]="terminoBusqueda">
+    <img src="assets/lupa.png" alt="" class="tamano-lupa margin-topbot-auto">
+  </div>
+  
+  <h2 class="centrar color-negro letras-negrita">Lo más vendido</h2>
+
+  <div class="contenedor-cards contenedor-flex" (click)="irPagina()">
+    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+    <div>
+      <p class="letras-negrita">RDB Game Hombre Celeste</p>
+      <p class="letras-negrita">Puma</p>
+      <p class="letras-negrita">$33.590</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="contenedor-cards contenedor-flex">
+    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+    <div>
+      <p class="letras-negrita">RDB Game Hombre Celeste</p>
+      <p class="letras-negrita">Puma</p>
+      <p class="letras-negrita">$33.590</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="contenedor-cards contenedor-flex">
+    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+    <div>
+      <p class="letras-negrita">RDB Game Hombre Celeste</p>
+      <p class="letras-negrita">Puma</p>
+      <p class="letras-negrita">$33.590</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="contenedor-cards contenedor-flex">
+    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+    <div>
+      <p class="letras-negrita">RDB Game Hombre Celeste</p>
+      <p class="letras-negrita">Puma</p>
+      <p class="letras-negrita">$33.590</p>
+    </div>
+  </div>
+  
+  <hr>
+
+  <div class="contenedor-cards contenedor-flex">
+    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+    <div>
+      <p class="letras-negrita">RDB Game Hombre Celeste</p>
+      <p class="letras-negrita">Puma</p>
+      <p class="letras-negrita">$33.590</p>
+    </div>
+  </div>
+
+  <hr>
+</ion-content>
+
+<ion-footer class="color-rojo">
+  <ion-toolbar>
+    <div class="contenedor-flex">
+      <div class="contenedor-footer" (click)="irInicio()">
+        <img src="assets/inicio.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer" (click)="irZapatillas()">
+        <img src="assets/zapatilogo.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer arreglar-lista">
+        <img src="assets/pedido.png" alt="" class="tamano-general-imagenes">
+  
+      </div>
+      <div class="contenedor-footer">
+        <img src="assets/perfil.png" alt="" class="tamano-general-imagenes">
+      </div>
+    </div>  
+  </ion-toolbar>
+</ion-footer>

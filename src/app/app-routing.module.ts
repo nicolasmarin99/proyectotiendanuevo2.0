@@ -8,9 +8,25 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'producto',
+    loadChildren: () => import('./pages/producto/producto.module').then( m => m.ProductoPageModule)
+  },
+  {
+    path: 'zapatillas',
+    loadChildren: () => import('./pages/zapatillas/zapatillas.module').then( m => m.ZapatillasPageModule)
+  },  
+  {
+    path: '**',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  }
 ];
 
 @NgModule({

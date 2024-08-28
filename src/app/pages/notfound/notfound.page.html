@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>NotFound</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="centrar">
+    <img class="img-logo margin-top2" src="assets/logo/logo.png" alt="">
+  </div>
+  <div class="contenedor-carita letras-negrita margin-top">:c</div>
+  <div class="contenedor-mensaje">
+    <p class="centrar letras-negrita">Lo sentimos la pagina a la que deseas acceder no
+      existe.</p>
+  </div>
+</ion-content>
+
+<ion-footer class="color-rojo">
+  <ion-toolbar>
+    <div class="contenedor-flex">
+      <div class="contenedor-footer" (click)="irInicio()">
+        <img src="assets/inicio.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer">
+        <img src="assets/zapatilogo.png" alt="" class="tamano-general-imagenes">
+      </div>
+  
+      <div class="contenedor-footer arreglar-lista">
+        <img src="assets/pedido.png" alt="" class="tamano-general-imagenes">
+  
+      </div>
+      <div class="contenedor-footer">
+        <img src="assets/perfil.png" alt="" class="tamano-general-imagenes">
+      </div>
+    </div>  
+  </ion-toolbar>
+</ion-footer>

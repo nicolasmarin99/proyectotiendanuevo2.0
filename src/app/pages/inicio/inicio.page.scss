@@ -52,7 +52,7 @@ ion-title{
     outline: none;
     border-radius: 10px;
     margin-left: 2px;
-    font-weight: 700;
+    font-weight: 500;
 
 }
 .barra-busqueda::placeholder{
@@ -92,9 +92,30 @@ ion-title{
 .letras-negrita{
     font-weight: bold;
 }
+.letras-negrita2{
+    font-weight: 500;
+}
 .arreglar-lista{
     margin-top: 3px;
 }
 .color-negro{
     color:black;
+}
+.margin-top{
+    margin-top: 10px;
+}
+.espacio-izquierda{
+    margin-left: 10px;
+}
+.espacio-izquierda2{
+    margin-left: 20px;
+}
+.contenedor-titulo{
+    width: 50%;
+}
+.contenedor-25{
+    width: 25%;
+}
+.agrandar-icono{
+    font-size: 35px;
 }

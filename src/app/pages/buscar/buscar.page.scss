@@ -7,10 +7,6 @@ ion-content{
 ion-title{
     --color: black;
 }
-ion-button{
-    --background: #F44449;
-    opacity: 0.7;
-}
 
 .margin-auto{
     margin: auto;
@@ -71,8 +67,7 @@ ion-button{
 
 .contenedor-cards{
     margin: auto;
-    width: 80%;
-    height: 45%;
+    width: 90%;
     background-color: #B5B5B5;
     border-radius: 10px;
     
@@ -109,13 +104,21 @@ ion-button{
 .margin-top{
     margin-top: 10px;
 }
-.contenedor-botones{
-    width: 90%;
+.espacio-izquierda{
+    margin-left: 10px;
 }
-.tamano-letras{
-    font-size: 25px;
+.espacio-izquierda2{
+    margin-left: 20px;
 }
-.contenedor-letras-card{
+.contenedor-titulo{
     width: 80%;
-    font-size: 18px;
+}
+.contenedor-25{
+    width: 20%;
+}
+.agrandar-icono{
+    font-size: 35px;
+}
+.final{
+    text-align: end;
 }

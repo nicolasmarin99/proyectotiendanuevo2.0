@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-buscar',
+  templateUrl: './buscar.page.html',
+  styleUrls: ['./buscar.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class BuscarPage implements OnInit {
 
   terminoBusqueda: string = "";
-  
-  constructor(private router: Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
-
   irPagina(){
     this.router.navigate(['/producto'])
   }
@@ -27,7 +25,5 @@ export class InicioPage implements OnInit {
   irCompras(){
     this.router.navigate(['/listadocompras'])
   }
-  irBusqueda(){
-    this.router.navigate(['/buscar'])
-  }
+
 }

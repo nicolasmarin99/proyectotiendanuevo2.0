@@ -16,21 +16,52 @@
     <input type="text" class="barra-busqueda margin-auto" placeholder="Buscar zapatilla..." [(ngModel)]="terminoBusqueda">
     <img src="assets/lupa.png" alt="" class="tamano-lupa margin-topbot-auto">
   </div>
-  
-  <h2 class="centrar color-negro letras-negrita">Lo más vendido</h2>
+  <hr>
+    
+  <div class="contenedor-botones margin-auto">
+    
+    <ion-button>
+      Filtrar por
+      <ion-icon slot="end" name="menu"></ion-icon>
+    </ion-button>
+  </div>
+  <hr>
 
-  <div class="contenedor-cards contenedor-flex" (click)="irProducto()">
-    <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla"></div>
+  <div class="contenedor-cards" (click)="irProducto()">
     <div>
-      <p class="letras-negrita">RDB Game Hombre Celeste</p>
-      <p class="letras-negrita">Puma</p>
-      <p class="letras-negrita">$33.590</p>
+      <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla margin-top"></div>
+        <div class="contenedor-letras-card margin-auto">
+          <p class="letras-negrita2">RDB Game Hombre Celeste</p>
+          <p class="letras-negrita2">Puma</p>
+        </div>
+        <hr>
+        <div class="centrar tamano-letras letras-negrita">
+          <p class="letras-negrita2">$33.590</p>
+        </div>
     </div>
   </div>
 
+  <hr>
+
+  <div class="contenedor-cards" (click)="irProducto()">
+    <div>
+      <div class="margin-auto centrar"><img src="assets/zapatilla.png" alt="" class="tamano-zapatilla margin-top"></div>
+        <div class="contenedor-letras-card margin-auto">
+          <p class="letras-negrita2">RDB Game Hombre Celeste</p>
+          <p class="letras-negrita2">Puma</p>
+        </div>
+        <hr>
+        <div class="centrar tamano-letras letras-negrita">
+          <p class="letras-negrita2">$33.590</p>
+        </div>
+    </div>
+  </div>
+
+  <hr>
+
 </ion-content>
 
-<ion-footer class="color-rojo">
+<ion-footer>
   <ion-toolbar>
     <div class="contenedor-flex">
       <div class="contenedor-footer" (click)="irInicio()">

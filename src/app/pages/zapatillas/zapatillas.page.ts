@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-zapatillas',
@@ -10,7 +11,7 @@ export class ZapatillasPage implements OnInit {
 
   terminoBusqueda: string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private menu: MenuController) { }
 
   ngOnInit() {
   }
@@ -20,4 +21,5 @@ export class ZapatillasPage implements OnInit {
   irInicio(){
     this.router.navigate(['/inicio'])
   }
+  
 }

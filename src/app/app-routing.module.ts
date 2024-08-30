@@ -24,9 +24,19 @@ const routes: Routes = [
     loadChildren: () => import('./pages/zapatillas/zapatillas.module').then( m => m.ZapatillasPageModule)
   },  
   {
+    path: 'listadocompras',
+    loadChildren: () => import('./pages/listadocompras/listadocompras.module').then( m => m.ListadocomprasPageModule)
+  },
+  {
+    path: 'buscar',
+    loadChildren: () => import('./pages/buscar/buscar.module').then( m => m.BuscarPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
-  }
+  },
+  
+  
 ];
 
 @NgModule({

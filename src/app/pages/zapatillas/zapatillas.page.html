@@ -1,21 +1,16 @@
 <ion-header >
-  <ion-toolbar>
-    <div>
-      <ion-title class="centrar">Zapatillas</ion-title>
-    </div>
-    
-    
-  </ion-toolbar>
+  <app-barranav titulo="Zapatillas"></app-barranav>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="contenedor-logo margin-auto">
-    <img class="img-logo" src="assets/logo/logo.png" alt="">
-  </div>
-  <div class="cuadrado-busqueda margin-auto contenedor-flex">
-    <input type="text" class="barra-busqueda margin-auto" placeholder="Buscar zapatilla..." [(ngModel)]="terminoBusqueda">
-    <img src="assets/lupa.png" alt="" class="tamano-lupa margin-topbot-auto">
-  </div>
+  <hr>
+  
+  <app-logo></app-logo>
+
+  <hr>
+
+  <app-barrabusqueda mensaje="Buscar zapatilla..."></app-barrabusqueda>
+
   <hr>
     
   <div class="contenedor-botones margin-auto">
@@ -62,23 +57,5 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <div class="contenedor-flex">
-      <div class="contenedor-footer" (click)="irInicio()">
-        <img src="assets/inicio.png" alt="" class="tamano-general-imagenes">
-      </div>
-  
-      <div class="contenedor-footer">
-        <img src="assets/zapatilogo.png" alt="" class="tamano-general-imagenes">
-      </div>
-  
-      <div class="contenedor-footer arreglar-lista">
-        <img src="assets/pedido.png" alt="" class="tamano-general-imagenes">
-  
-      </div>
-      <div class="contenedor-footer">
-        <img src="assets/perfil.png" alt="" class="tamano-general-imagenes">
-      </div>
-    </div>  
-  </ion-toolbar>
+  <app-barrafooter></app-barrafooter>
 </ion-footer>

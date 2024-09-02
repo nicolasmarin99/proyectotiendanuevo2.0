@@ -1,12 +1,7 @@
-ion-toolbar{
-    --background: #F44449;
-}
 ion-content{
     --background: linear-gradient(to bottom,#D7D7D7,#F44449);
 }
-ion-title{
-    --color: black;
-}
+
 ion-button{
     --background: #F44449;
     width: 100%;
@@ -19,94 +14,61 @@ ion-select {
 }
 ion-item{
     --background: white;
-    
 }
 
-.margin-auto{
-    margin: auto;
-}
-.margin-topbot-auto{
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.centrar{
-    text-align: center;
-}
-.centrar-justify{
-    justify-content: center;
-}
-
-.contenedor-flex{
-    display: flex;
-}
-
-.img-logo{
-    max-width: 100%;
-    height: auto;
-}
-.contenedor-logo{
-    width: 70%;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-
-.contenedor-cards{
-    margin: auto;
-    width: 95%;
-    background-color: #B5B5B5;
-    height: 95%;
-    margin-top: 10px;
-    
-}
-.tamano-zapatilla{
-    width: 85%;
-    height: 85%;
-    margin-top: 10px;
-}
-
-.contenedor-footer{
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    align-items: center;
-
-}
-
-.tamano-general-imagenes{
-    max-width: 40px;
-    max-height: 40px;
-}
-.letras-negrita{
-    font-weight: bold;
-}
-.letras-negrita2{
-    font-weight: 500;
-}
-.arreglar-lista{
-    margin-top: 3px;
-}
-.color-negro{
-    color:black;
-}
 .linea{
     width: 85%;
     height: 75%;
     border: 3px solid white;
 }
 
+.margin-auto{
+    margin: auto;
+}
+
 .bordear{
     border-radius: 10px;
 }
-.contenedor-compra{
-    width: 80%;
+
+.contenedor-cards{
+    margin: auto;
+    width: 95%;
+    background-color: black;
+    height: 95%;
+    margin-top: 10px;
 }
-.letras-grandes{
-    font-size: 25px;
+
+.centrar{
+    text-align: center;
 }
+
+.tamano-zapatilla{
+    width: 85%;
+    height: 85%;
+    margin-top: 10px;
+}
+
+.letras-negrita2{
+    font-weight: 500;
+}
+
 .contenedor-lista{
     width: 50%;
 }
+
 .sin-padding{
     padding: 0px;
     background-color: white;
+}
+
+.letras-grandes{
+    font-size: 25px;
+}
+
+.contenedor-compra{
+    width: 80%;
+}
+
+.espacio-arriba{
+    margin-bottom: 40px;
 }

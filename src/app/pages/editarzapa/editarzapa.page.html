@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <app-barranav titulo="Editar"></app-barranav>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="contenedor-pag">
+    <div class="contenedor-editar centrar-eje margin-auto">
+      <br>
+      <app-logo></app-logo>
+
+      
+      <div class="contenedor-input margin-auto">
+        <ion-input label="Nombre zapatilla" label-placement="floating" fill="outline" type="text" placeholder="Ingrese el nombre de la zapatilla." ></ion-input>
+
+        <br>
+
+        <ion-input label="Cantidad" label-placement="floating" fill="outline" type="Number" placeholder="Ingrese la cantidad." ></ion-input>
+
+        <br>
+
+        <div class="margin-auto">
+          <ion-list class="sin-padding">
+            <ion-item class="fondo">
+              <ion-select aria-label="Talla" interface="action-sheet" placeholder="Talla (US)">
+                <ion-select-option value="7.5">7.5 (25.5 cms)</ion-select-option>
+                <ion-select-option value="8">8 (26 cms)</ion-select-option>
+                <ion-select-option value="8.5">8.5 (26.5 cms)</ion-select-option>
+                <ion-select-option value="9">9 (27 cms)</ion-select-option>
+                <ion-select-option value="9.5">9.5 (27.5 cms)</ion-select-option>
+                <ion-select-option value="10">10 (28 cms)</ion-select-option>
+                <ion-select-option value="10.5">10.5 (28.5 cms)</ion-select-option>
+                <ion-select-option value="11">11 (29 cms)</ion-select-option>
+                <ion-select-option value="11.5">11.5 (29.5 cms)</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <br>
+
+        <div class="margin-auto">
+          <ion-list class="sin-padding">
+            <ion-item class="fondo">
+              <ion-select aria-label="Marca" interface="action-sheet" placeholder="Marca">
+                <ion-select-option value="Puma">Puma</ion-select-option>
+                <ion-select-option value="Adidas">Adidas</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <br>
+
+        Ingrese la imagen de la zapatilla:
+        <div class="contenedor-imagen margin-auto centrar"><img src="assets/sinimagen.png" alt="" class="tamano-imagen"></div>
+      </div>
+
+      <br>
+
+      <div class="contenedor-input margin-auto centrar">
+        <ion-button class="color">
+          <ion-icon slot="start" name="Pencil"></ion-icon>
+          Editar
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+
+  <app-barrafooter></app-barrafooter>
+  
+</ion-footer>

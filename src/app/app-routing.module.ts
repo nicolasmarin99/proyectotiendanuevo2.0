@@ -32,6 +32,54 @@ const routes: Routes = [
     loadChildren: () => import('./pages/buscar/buscar.module').then( m => m.BuscarPageModule)
   },
   {
+    path: 'carrito',
+    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'zapatillasad',
+    loadChildren: () => import('./pages/zapatillasad/zapatillasad.module').then( m => m.ZapatillasadPageModule)
+  },
+  {
+    path: 'listacomprasad',
+    loadChildren: () => import('./pages/listacomprasad/listacomprasad.module').then( m => m.ListacomprasadPageModule)
+  },
+  {
+    path: 'editarzapa',
+    loadChildren: () => import('./pages/editarzapa/editarzapa.module').then( m => m.EditarzapaPageModule)
+  },
+  {
+    path: 'deshabilitarzapa',
+    loadChildren: () => import('./pages/deshabilitarzapa/deshabilitarzapa.module').then( m => m.DeshabilitarzapaPageModule)
+  },
+  {
+    path: 'agregarmarca',
+    loadChildren: () => import('./pages/agregarmarca/agregarmarca.module').then( m => m.AgregarmarcaPageModule)
+  },
+  {
+    path: 'agregarzapa',
+    loadChildren: () => import('./pages/agregarzapa/agregarzapa.module').then( m => m.AgregarzapaPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
+  {
+    path: 'cambiarcontra',
+    loadChildren: () => import('./pages/cambiarcontra/cambiarcontra.module').then( m => m.CambiarcontraPageModule)
+  },
+  {
+    path: 'cambiarcontrasena',
+    loadChildren: () => import('./pages/cambiarcontrasena/cambiarcontrasena.module').then( m => m.CambiarcontrasenaPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },

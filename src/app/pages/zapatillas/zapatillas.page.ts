@@ -9,9 +9,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class ZapatillasPage implements OnInit {
 
-  terminoBusqueda: string = "";
-
-  constructor(private router: Router,private menu: MenuController) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

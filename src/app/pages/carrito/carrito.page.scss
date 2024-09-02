@@ -1,0 +1,98 @@
+ion-content{
+    --background: linear-gradient(to bottom,#D7D7D7,#F44449);
+}
+
+.color{
+    --background: #B5B5B5;
+    width: 40%;
+    opacity: 0.8;
+}
+
+.boton-compra{
+    --background: #F44449;
+    width: 100%;
+}
+
+.contenedor-cards{
+    margin: auto;
+    width: 80%;
+    height: 63%;
+    background-color: black;
+}
+
+.bordear{
+    border-radius: 10px;
+}
+
+.contenedor-flex{
+    display: flex;
+}
+
+.contenedor-info{
+    width: 75%;
+}
+
+.margin-auto{
+    margin: auto;
+}
+.margin-l{
+    text-align: end;
+}
+
+.centrar-justify{
+    justify-content: center;
+}
+
+.letras-negrita{
+    font-weight: bold;
+}
+
+.tamano-letras{
+    font-size: 18px;
+}
+
+.color-negro{
+    color:white;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.tamano-zapatilla{
+    width: 85%;
+    height: 85%;
+}
+
+.contenedor-letras-card{
+    width: 75%;
+    font-size: 18px;
+}
+
+.letras-negrita2{
+    font-weight: 500;
+}
+
+.contenedor-total{
+    width: 80%;
+    height: 23%;
+    background-color: black;
+}
+
+.contenedor-quitar{
+    width: 90%;
+}
+
+.contenedor-compra{
+    width: 80%;
+    height: 100%;
+}
+
+.precio{
+    text-align: right;
+}
+
+.espacio-precio{
+    justify-content: space-between;
+    align-items: center;
+}

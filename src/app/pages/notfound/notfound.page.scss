@@ -1,44 +1,5 @@
-ion-toolbar{
-    --background: #F44449;
-}
 ion-content{
     --background: linear-gradient(to bottom,#D7D7D7,#F44449);
-
-}
-
-.centrar{
-    text-align: center;
-}
-.centrar-justify{
-    justify-content: center;
-}
-.centrar-align{
-    align-items: center;
-}
-
-.contenedor-flex{
-    display: flex;
-}
-
-.img-logo{
-    padding-top: 10px;
-}
-.margin-auto{
-    margin: auto;
-}
-
-.img-logo{
-    padding-top: 10px;
-}
-
-.letras-negrita{
-    font-weight: 500;
-}
-
-.contenedor-mensaje{
-    width: 80%;
-    margin: auto;
-    font-size:30px
 }
 
 .contenedor-carita{
@@ -47,25 +8,21 @@ ion-content{
     font-size:30px
 }
 
-.contenedor-footer{
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    align-items: center;
-
+.letras-negrita{
+    font-weight: 500;
 }
 
-.tamano-general-imagenes{
-    max-width: 40px;
-    max-height: 40px;
-}
 .margin-top{
     margin-top: 90px;
     margin-bottom: 40px;
 }
-.margin-top2{
-    margin-top: 40px;
+
+.contenedor-mensaje{
+    width: 80%;
+    margin: auto;
+    font-size:30px
 }
-.arreglar-lista{
-    margin-top: 3px;
+
+.centrar{
+    text-align: center;
 }

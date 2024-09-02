@@ -14,9 +14,6 @@ export class ListadocomprasPage implements OnInit {
 
   ngOnInit() {
   }
-  irProducto(){
-    this.router.navigate(['/producto'])
-  }
   irInicio(){
     this.router.navigate(['/inicio'])
   }

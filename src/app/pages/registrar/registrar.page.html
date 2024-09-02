@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+
+  <app-barranav titulo="Registrar"></app-barranav>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="contenedor-pag">
+    <div class="contenedor-registrar centrar-eje margin-auto">
+      <br>
+      <app-logo></app-logo>
+
+      <div class="contenedor-input margin-auto">
+        <ion-input label="Usuario" label-placement="floating" fill="outline" type="text" placeholder="Ingrese su usuario. Ej: MarkusAce" ></ion-input>
+
+        <br>
+
+        <ion-input label="Email" label-placement="floating" fill="outline" type="email" placeholder="Ingrese su email. Ej: correo@gmail.com"></ion-input>
+
+        <br>
+
+        <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Ingrese su contraseña."></ion-input>
+
+        <br>
+
+        <ion-input label="Repita su Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Repita su contraseña."></ion-input>
+
+      </div>
+
+      <br>
+
+      <div class="contenedor-input margin-auto centrar">
+        <ion-button class="color">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          Regristrar
+        </ion-button>
+      </div>
+
+      <br>
+
+      <div class="contenedor-input margin-auto">
+        <p class="tamano-letras">¿Ya tienes una cuenta? Inicia sesión aqui!!!</p>
+      </div>
+    </div>
+  </div>
+  
+
+</ion-content>
+
+<ion-footer>
+
+  <app-barrafooter></app-barrafooter>
+  
+</ion-footer>

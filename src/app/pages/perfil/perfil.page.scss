@@ -1,0 +1,63 @@
+ion-content{
+    --background: linear-gradient(to bottom,#D7D7D7,#F44449);
+}
+
+ion-button{
+    --background: #F44449;
+    width: 100%;
+}
+
+.contenedor-perfil{
+    width: 80%;
+    height: 70%;
+    background-color: black;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.margin-auto{
+    margin: auto;
+}
+
+.bordear{
+    border-radius: 10px;
+}
+
+.tamano-perfil{
+ width: 40%;
+ height: auto;   
+}
+
+.contenedor-flex{
+    display: flex;
+}
+
+.negrita{
+    font-weight: 500;
+}
+.negrita2{
+    font-weight: bold;
+}
+
+.contenedor-datos{
+    width: 80%;
+}
+
+.letra-grande{
+    font-size: 17px;
+}
+
+.espacio-arriba{
+    padding-top: 60px;
+}
+
+.precio{
+    text-align: right;
+}
+
+.espacio-precio{
+    justify-content: space-between;
+    align-items: center;
+}

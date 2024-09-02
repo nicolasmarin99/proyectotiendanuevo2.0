@@ -10,11 +10,15 @@ export class ProductoPage implements OnInit {
 
   terminoBusqueda: string = "";
   constructor(private router: Router) { }
+  
 
   ngOnInit() {
   }
 
   irInicio(){
     this.router.navigate(['/inicio'])
+  }
+  irCarrito(){
+    this.router.navigate(['/carrito'])
   }
 }

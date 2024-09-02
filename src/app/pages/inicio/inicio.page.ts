@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -9,25 +9,11 @@ import { NavigationExtras, Router } from '@angular/router';
 export class InicioPage implements OnInit {
 
   terminoBusqueda: string = "";
+  usuario: string = "";
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activerouter: ActivatedRoute) {
+   }
 
   ngOnInit() {
-  }
-
-  irPagina(){
-    this.router.navigate(['/producto'])
-  }
-  irInicio(){
-    this.router.navigate(['/inicio'])
-  }
-  irZapatillas(){
-    this.router.navigate(['/zapatillas'])
-  }
-  irCompras(){
-    this.router.navigate(['/listadocompras'])
-  }
-  irBusqueda(){
-    this.router.navigate(['/buscar'])
   }
 }

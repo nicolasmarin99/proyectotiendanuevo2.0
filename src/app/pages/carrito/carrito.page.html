@@ -92,12 +92,11 @@
         </div>
   
         <div class="centrar margin-auto">
-          <ion-button id="alerta-carrito" class="boton-compra">
+          <ion-button class="boton-compra" (click)="comprar()">
             <ion-icon slot="start" name="cart"></ion-icon>
             Comprar
           </ion-button>
         </div>
-        <ion-alert trigger="alerta-carrito" header="Aprobado" message="Su compra ha sido realizada con exito" [buttons]="alertButtons"></ion-alert>
       </div>
   </div>
 

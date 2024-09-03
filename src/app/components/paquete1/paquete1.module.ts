@@ -7,12 +7,13 @@ import { CardinicioComponent } from '../cardinicio/cardinicio.component';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { BarranavComponent } from '../barranav/barranav.component';
+import { Barrafooter2Component } from '../barrafooter2/barrafooter2.component';
 
 
 
 @NgModule({
-  declarations: [LogoComponent,BarrabusquedaComponent, BarrafooterComponent, CardinicioComponent, BarranavComponent],
-  exports: [LogoComponent, BarrabusquedaComponent, BarrafooterComponent, CardinicioComponent, BarranavComponent],
+  declarations: [LogoComponent,BarrabusquedaComponent, BarrafooterComponent, CardinicioComponent, BarranavComponent, Barrafooter2Component],
+  exports: [LogoComponent, BarrabusquedaComponent, BarrafooterComponent, CardinicioComponent, BarranavComponent, Barrafooter2Component],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
 
-  <app-barranav titulo="Login"></app-barranav>
+  <app-barranav titulo="Inicio de sesión"></app-barranav>
 
 </ion-header>
 
@@ -24,15 +24,18 @@
       <div class="contenedor-input margin-auto centrar">
         <ion-button class="color" (click)="validarUsuario()">
           <ion-icon slot="start" name="log-in-outline"></ion-icon>
-          Login
+          Acceder
         </ion-button>
       </div>
 
       <br>
 
       <div class="contenedor-input margin-auto">
-        <p class="tamano-letras">¿No tienes una cuenta? Registrate  aqui!!!</p>
-        <p class="tamano-letras">Cambia tu contraseña aqui.</p>
+        <div class="contenedor-flex tamano-letras" (click)="irRegistro()">
+          <p>¿No tienes una cuenta? &nbsp;</p>
+          <p class="letras-negrita"> Registrate  aqui!!!</p>
+        </div>
+        <p class="tamano-letras letras-negrita" (click)="irCambiarContra()">Cambia tu contraseña aqui.</p>
       </div>
     </div>
   </div>

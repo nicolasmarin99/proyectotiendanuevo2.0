@@ -12,8 +12,23 @@ export class InicioPage implements OnInit {
   usuario: string = "";
   
   constructor(private router: Router, private activerouter: ActivatedRoute) {
+    this.activerouter.queryParams.subscribe(params => {
+      if(this.router.getCurrentNavigation()?.extras.state){
+        this.usuario = this.router.getCurrentNavigation()?.extras?.state?.['user'];
+      }
+    })
    }
 
   ngOnInit() {
+  }
+
+  irZapatillasad(){
+    this.router.navigate(['/zapatillasad'])
+  }
+  irListacomprasad(){
+    this.router.navigate(['/listacomprasad'])
+  }
+  irInicio(){
+    this.router.navigate(['/inicio'])
   }
 }

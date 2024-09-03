@@ -4,6 +4,9 @@ ion-content{
 ion-title{
     --color: black;
 }
+ion-toolbar{
+    --background: #F44449;
+}
 .boton-filtrar{
     --background: #F44449;
     opacity: 0.7;
@@ -115,4 +118,26 @@ ion-title{
 .espacio-precio{
     justify-content: space-between;
     align-items: center;
+}
+
+.color-negro{
+    color: black;
+}
+
+.negrita{
+    font-weight: 600;
+}
+
+.boton-filtro{
+    --background: #F44449;
+    width: 40%;
+    font-size: 13px;
+    color: white;
+}
+
+.boton-vaciar{
+    --background: black;
+    width: 40%;
+    font-size: 13px;
+    color: white;
 }

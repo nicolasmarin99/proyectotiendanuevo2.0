@@ -12,26 +12,26 @@
       <app-logo></app-logo>
 
       <div class="contenedor-input margin-auto">
-        <ion-input label="Usuario" label-placement="floating" fill="outline" type="text" placeholder="Ingrese su usuario. Ej: MarkusAce" ></ion-input>
+        <ion-input label="Usuario" label-placement="floating" fill="outline" type="text" placeholder="Ingrese su usuario. Ej: MarkusAce" [(ngModel)]="usuario1"></ion-input>
 
         <br>
 
-        <ion-input label="Email" label-placement="floating" fill="outline" type="email" placeholder="Ingrese su email. Ej: correo@gmail.com"></ion-input>
+        <ion-input label="Email" label-placement="floating" fill="outline" type="email" placeholder="Ingrese su email. Ej: correo@gmail.com" [(ngModel)]="email1"></ion-input>
 
         <br>
 
-        <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Ingrese su contraseña."></ion-input>
+        <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Ingrese su contraseña." [(ngModel)]="contrasena1"></ion-input>
 
         <br>
 
-        <ion-input label="Repita su Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Repita su contraseña."></ion-input>
+        <ion-input label="Repita su Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Repita su contraseña." [(ngModel)]="contrasenarepetida"></ion-input>
 
       </div>
 
       <br>
 
       <div class="contenedor-input margin-auto centrar">
-        <ion-button class="color">
+        <ion-button class="color" (click)="validarRegistro()">
           <ion-icon slot="start" name="person-add-outline"></ion-icon>
           Regristrar
         </ion-button>
@@ -39,7 +39,7 @@
 
       <br>
 
-      <div class="contenedor-input margin-auto">
+      <div class="contenedor-input margin-auto" (click)="irLogin()">
         <p class="tamano-letras">¿Ya tienes una cuenta? Inicia sesión aqui!!!</p>
       </div>
     </div>

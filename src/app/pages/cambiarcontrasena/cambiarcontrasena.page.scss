@@ -1,6 +1,12 @@
 ion-content{
     --background: linear-gradient(to bottom,#D7D7D7,#F44449);
 }
+
+ion-input{
+    --background: white;
+    color: black;
+    --highlight-color-valid: black;
+}
 .contenedor-login{
     width: 85%;
     height: 50%;
@@ -36,12 +42,6 @@ ion-content{
     --background: black;
     color: white;
     font-size: 16px;
-}
-
-ion-input{
-    --background: white;
-    color: black;
-    --highlight-color-focused: black;
 }
 
 .tamano-letras{

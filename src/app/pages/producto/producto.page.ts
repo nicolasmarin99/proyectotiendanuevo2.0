@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-producto',
@@ -9,16 +10,31 @@ import { Router } from '@angular/router';
 export class ProductoPage implements OnInit {
 
   terminoBusqueda: string = "";
-  constructor(private router: Router) { }
+  talla: string = "";
+  marca: string = "";
+  constructor(private router: Router,private alertController: AlertController) { }
   
 
   ngOnInit() {
   }
 
-  irInicio(){
-    this.router.navigate(['/inicio'])
+  async presentAlert(titulo: string, msj: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: msj,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
-  irCarrito(){
-    this.router.navigate(['/carrito'])
+
+  validarProducto(){
+    if ((this.talla== '') || (this.marca== '')){
+      this.presentAlert('Error','Los campos no pueden estar vacios')
+    }
+
+    else{
+      this.presentAlert('Exito','Los productos se añadieron correctamente.')
+      this.router.navigate(['/carrito'])
+    }
   }
 }

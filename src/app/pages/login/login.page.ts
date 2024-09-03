@@ -50,12 +50,19 @@ export class LoginPage implements OnInit {
     }
 
     else if(this.usuario1== this.usuario2 && this.contrasena1 == this.contrasena2){
-
-      this.router.navigate(['/inicio']);
+      this.presentAlert('Exito','Usted ha accedido exitosamente.')
+      this.router.navigate(['/inicio'], navigationextras);
     }
     else if(this.usuario1== this.usuario3 && this.contrasena1 == this.contrasena3){
-      this.router.navigate(['/inicio']);
+      this.presentAlert('Exito','Usted ha accedido exitosamente.')
+      this.router.navigate(['/inicio'], navigationextras);
     }
     
+  }
+  irRegistro(){
+    this.router.navigate(['/registrar']);
+  }
+  irCambiarContra(){
+    this.router.navigate(['/cambiarcontra']);
   }
 }

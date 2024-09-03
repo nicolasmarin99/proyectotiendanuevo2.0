@@ -41,9 +41,15 @@ ion-content{
 ion-input{
     --background: white;
     color: black;
-    --highlight-color-focused: black;
+    --highlight-color-valid: black;
 }
 
 .tamano-letras{
     font-size: 13px;
+}
+.letras-negrita{
+    font-weight: 600;
+}
+.contenedor-flex{
+    display: flex;
 }

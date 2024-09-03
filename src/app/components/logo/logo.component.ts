@@ -8,11 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LogoComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {}
 
-  irInicio(){
-    this.router.navigate(['/inicio'])
-  }
 }

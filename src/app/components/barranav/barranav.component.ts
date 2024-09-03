@@ -9,10 +9,19 @@ import { Router } from '@angular/router';
 export class BarranavComponent  implements OnInit {
 
   @Input() titulo: string = "";
+  @Input() tipousuario: string = "";
   constructor(private router: Router) { }
 
   ngOnInit() {}
   irPerfil(){
-    this.router.navigate(['/perfil'])
+    if(this.tipousuario=="MarkusAce"){
+      this.router.navigate(['/perfil'])
+    }
+    else if(this.tipousuario=="NicolasMa"){
+      this.router.navigate(['/perfil'])
+    }
+    else{
+      this.router.navigate(['/login'])
+    }
   }
 }

@@ -6,7 +6,7 @@
 .cuadrado-busqueda{
     width: 90%;
     height: 60px;
-    background-color: #D03739;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 
@@ -17,8 +17,8 @@
 .barra-busqueda{
     height: 100%;
     width: 90%;
-    background-color: #D03739;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     outline: none;
     border-radius: 10px;
@@ -27,7 +27,7 @@
 
 }
 .barra-busqueda::placeholder{
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: 0.9;
 }
 

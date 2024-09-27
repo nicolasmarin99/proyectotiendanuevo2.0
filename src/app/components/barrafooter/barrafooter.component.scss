@@ -1,5 +1,5 @@
 ion-toolbar{
-    --background: #F44449;
+    --background: #f6f6f6;
 }
 .contenedor-flex{
     display: flex;
@@ -15,7 +15,7 @@ ion-toolbar{
     max-height: 40px;
 }
 .color-negro{
-    color:black;
+    color:rgb(6, 6, 6);
 }
 .agrandar-icono{
     font-size: 35px;
@@ -26,3 +26,4 @@ ion-toolbar{
 .arreglar-lista{
     margin-top: 3px;
 }
+

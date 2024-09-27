@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(to bottom,#D7D7D7,#F44449);
+    --background: linear-gradient(to bottom,#eaeaea,#111010);
 }
 
 ion-title{
@@ -23,13 +23,16 @@ ion-input{
 .contenedor-agregar{
     width: 85%;
     height: 45%;
-    background-color: #D03739;
+    background-image: url("../../../assets/fondo\ contenedor\ agregar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .color{
     --background: black;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
+    margin-top: 30px;
 }
 
 .margin-auto{
@@ -46,6 +49,7 @@ ion-input{
 
 .contenedor-input{
     width: 90%;
+    color: rgb(255, 255, 255);
 }
 
 .centrar{

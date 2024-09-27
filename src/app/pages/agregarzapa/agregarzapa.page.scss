@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(to bottom,#D7D7D7,#F44449);
+    --background: linear-gradient(to bottom,#eaeaea,#111010);
 }
 
 ion-title{
@@ -24,8 +24,8 @@ ion-input{
 
 .contenedor-agregar{
     width: 85%;
-    height: 95%;
-    background-color: #D03739;
+    height: 100%;
+    background-color: #000000;
 }
 
 .color{
@@ -66,9 +66,10 @@ ion-input{
 
 .contenedor-imagen{
 width: 55%;
+
 }
 
 .tamano-imagen{
     width: 100%;
-    height: auto;
+    
 }

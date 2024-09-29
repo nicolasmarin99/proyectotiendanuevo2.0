@@ -34,4 +34,8 @@ export class PerfilPage implements OnInit {
     this.presentAlert('Adios','Usted ha cerrado sesion.')
     this.router.navigate(['/inicio'], navigationextras);
   }
+
+  irEditarperfil(){
+    this.router.navigate(['/editarperfil'])
+  }
 }

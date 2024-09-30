@@ -15,7 +15,7 @@ import { Paquete1Module } from 'src/app/components/paquete1/paquete1.module';
     FormsModule,
     IonicModule,
     AgregarmarcaPageRoutingModule,
-    Paquete1Module
+    Paquete1Module,
   ],
   declarations: [AgregarmarcaPage]
 })

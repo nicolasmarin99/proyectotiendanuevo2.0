@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ServiciobdService } from 'src/app/services/serviciobd.service';
 
 @Component({
   selector: 'app-registrar',
@@ -19,7 +20,7 @@ export class RegistrarPage implements OnInit {
   tipodomicilio: string = "";
   numerodomicilio: string = "";
 
-  constructor(private router: Router, private alertController: AlertController) { }
+  constructor(private router: Router, private alertController: AlertController,private dbService:ServiciobdService) { }
 
   ngOnInit() { }
 
@@ -70,6 +71,16 @@ export class RegistrarPage implements OnInit {
       this.presentAlert('Éxito', 'Usted se ha registrado exitosamente.')
       this.router.navigate(['/login']);
     }
+
+    this.dbService.registrarUsuario(this.usuario1, this.email1, this.contrasena1, this.region, this.ciudad, this.calle, this.tipodomicilio, this.numerodomicilio)
+    .then(() => {
+      console.log('Registro exitoso');
+      // Redirigir a la página de inicio de sesión o a otra página
+      this.irLogin();
+    })
+    .catch(e => {
+      console.error('Error al registrar usuario', e);
+    });
   }
 
   irLogin() {

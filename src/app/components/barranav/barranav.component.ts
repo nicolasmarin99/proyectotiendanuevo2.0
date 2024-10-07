@@ -1,27 +1,30 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/autentificacion.service'; // Asegúrate de importar el servicio de autenticación
 
 @Component({
   selector: 'app-barranav',
   templateUrl: './barranav.component.html',
   styleUrls: ['./barranav.component.scss'],
 })
-export class BarranavComponent  implements OnInit {
-
+export class BarranavComponent implements OnInit {
+  
   @Input() titulo: string = "";
   @Input() tipousuario: string = "";
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {}
-  irPerfil(){
-    if(this.tipousuario=="MarkusAce"){
-      this.router.navigate(['/perfil'])
-    }
-    else if(this.tipousuario=="NicolasMa"){
-      this.router.navigate(['/perfil'])
-    }
-    else{
-      this.router.navigate(['/login'])
+
+  irPerfil() {
+    // Comprueba si hay un usuario autenticado
+    if (this.authService.isLoggedIn()) {
+      // Obtiene el nombre del usuario autenticado
+      const usuario = this.authService.getUser();
+      // Aquí podrías realizar lógica adicional si deseas mostrar perfiles diferentes según el usuario
+      this.router.navigate(['/perfil']); // Redirige al perfil del usuario
+    } else {
+      this.router.navigate(['/login']); // Si no hay usuario autenticado, redirige al login
     }
   }
 }

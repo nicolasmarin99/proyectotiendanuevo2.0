@@ -20,45 +20,30 @@
 
     <hr>
 
-    <div class="contenedor-datos margin-auto">
+    <div class="contenedor-datos margin-auto" >
       <div class="contenedor-flex espacio-precio letra-grande">
         <p class="negrita2">Usuario:</p>
-        <p class="negrita">&nbsp;MarkusAce</p>
+        <p class="negrita">&nbsp;{{ arregloUsuarios.usuario }}</p> <!-- Muestra el nombre de usuario -->
       </div>
-
+      
       <div class="contenedor-flex letra-grande espacio-precio">
         <p class="negrita2">Correo:</p>
-        <p class="negrita">&nbsp;correo&#64;gmail.com</p>
+        <p class="negrita">&nbsp;{{ arregloUsuarios.email }}</p> <!-- Muestra el correo electrónico -->
       </div>
-
+      
       <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">Fecha de creación:</p>
-        <p class="negrita margin-top">&nbsp;02/09/2024</p>
+        <p class="negrita2">Ciudad:</p>
+        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.ciudad }}</p> <!-- Muestra la ciudad -->
       </div>
-
+      
       <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">region:</p>
-        <p class="negrita margin-top">&nbsp;region metropolitana</p>
+        <p class="negrita2">Calle:</p>
+        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.calle }}</p> <!-- Muestra la calle -->
       </div>
-
+      
       <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">ciudad:</p>
-        <p class="negrita margin-top">&nbsp;santiago</p>
-      </div>
-
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">calle:</p>
-        <p class="negrita margin-top">&nbsp;san alfonso</p>
-      </div>
-
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">numero domicilio:</p>
-        <p class="negrita margin-top">&nbsp;223</p>
-      </div>
-
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">comuna:</p>
-        <p class="negrita margin-top">&nbsp;quilicura</p>
+        <p class="negrita2">Número domicilio:</p>
+        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.numeroDomicilio }}</p> <!-- Muestra el número del domicilio -->
       </div>
      
 

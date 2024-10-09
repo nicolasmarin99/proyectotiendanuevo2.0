@@ -72,14 +72,24 @@ export class RegistrarPage implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.dbService.registrarUsuario(this.usuario1, this.email1, this.contrasena1, this.region, this.ciudad, this.calle, this.tipodomicilio, this.numerodomicilio)
+    this.dbService.registrarUsuario(
+      this.usuario1, 
+      this.email1, 
+      this.contrasena1, 
+      this.region, 
+      this.ciudad, 
+      this.calle, 
+      this.tipodomicilio, 
+      this.numerodomicilio
+    )
     .then(() => {
       console.log('Registro exitoso');
-      // Redirigir a la página de inicio de sesión o a otra página
+      this.presentAlert('Éxito', 'Usted se ha registrado exitosamente.');
       this.irLogin();
     })
     .catch(e => {
       console.error('Error al registrar usuario', e);
+      this.presentAlert('Error', 'Hubo un problema al registrar el usuario.');
     });
   }
 

@@ -10,19 +10,16 @@ export class AuthService {
 
   constructor(private dbService: ServiciobdService) {}
 
-  // Método para iniciar sesión
   async login(usuario: string, contraseña: string): Promise<boolean> {
-    // Consulta la base de datos para verificar las credenciales
     const result = await this.dbService.executeQuery(
       'SELECT * FROM Usuario WHERE nombre_usuario = ? AND contraseña = ?', 
       [usuario, contraseña]
     );
-
-    // Si se encuentra un usuario, establecer el estado de autenticación
+  
     if (result.rows.length > 0) {
       this.isAuthenticated = true;
-      this.currentUser = usuario; // Guarda el nombre de usuario actual
-      localStorage.setItem('user', usuario); // Almacena el usuario en localStorage
+      this.currentUser = usuario;
+      localStorage.setItem('user', usuario);
       return true; // Inicio de sesión exitoso
     } else {
       return false; // Credenciales incorrectas

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/autentificacion.service'; // Importa el servicio de autenticación
+import { AuthService } from 'src/app/services/autentificacion.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-login',

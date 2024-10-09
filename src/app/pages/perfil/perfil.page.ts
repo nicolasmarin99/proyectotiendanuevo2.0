@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ServiciobdService } from 'src/app/services/serviciobd.service'; // Importar tu servicio de base de datos
 
 @Component({
   selector: 'app-perfil',
@@ -9,11 +10,25 @@ import { AlertController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
-  usuario: string='';
+  arregloUsuarios: any =[{
+    usuario:'',
+    email: '',
+    ciudad: '',
+    calle: '',
+    numeroDomicilio:'',
+  }]
 
-  constructor(private router: Router,private alertController: AlertController) { }
+  constructor(private router: Router, private dbService: ServiciobdService, private alertController:AlertController,private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.dbService.dbState().subscribe(data=>{
+      if(data){
+        this.dbService.fetchUsuarios().subscribe(res=>{
+          this.arregloUsuarios=res;
+        })
+      }
+
+    })
   }
 
   async presentAlert(titulo: string, msj: string) {
@@ -24,18 +39,15 @@ export class PerfilPage implements OnInit {
     });
     await alert.present();
   }
-  
+
+
   cerrarSesion(){
-    let navigationextras: NavigationExtras = {
-      state:{
-        user: this.usuario
-      }
-    }
-    this.presentAlert('Adios','Usted ha cerrado sesion.')
-    this.router.navigate(['/inicio'], navigationextras);
+    localStorage.removeItem('idUsuario'); // Eliminar la sesión al cerrar
+    this.presentAlert('Adiós', 'Usted ha cerrado sesión.');
+    this.router.navigate(['/login']);
   }
 
-  irEditarperfil(){
-    this.router.navigate(['/editarperfil'])
+  irEditarperfil() {
+    this.router.navigate(['/editarperfil']);
   }
 }

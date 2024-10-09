@@ -19,7 +19,13 @@ export class AuthService {
     if (result.rows.length > 0) {
       this.isAuthenticated = true;
       this.currentUser = usuario;
+  
+      // Almacenar el nombre de usuario y el id_usuario en el localStorage
+      const id_usuario = result.rows.item(0).id_usuario; // Obtener el id del primer resultado
+  
       localStorage.setItem('user', usuario);
+      localStorage.setItem('id_usuario', id_usuario); // Guardar el id_usuario en el localStorage
+  
       return true; // Inicio de sesión exitoso
     } else {
       return false; // Credenciales incorrectas

@@ -78,6 +78,8 @@ export class ServiciobdService {
     await this.database.executeSql(this.tablaCompras, []);
     await this.database.executeSql(this.tablaDetallesCompra, []);
 
+    this.seleccionarUsuario();
+
     this.isDBReady.next(true);
     }catch(e){
       this.presentAlert('Creación de Tablas', 'Error en crear las tablas: ' + JSON.stringify(e));
@@ -88,7 +90,7 @@ export class ServiciobdService {
     try {
       // Primero insertamos en la tabla Usuario
       let queryUsuario = `INSERT INTO Usuario (nombre_usuario, email, contraseña, id_rol) VALUES (?, ?, ?, ?)`;
-      let rolDefault = 1; // Puedes cambiar esto por el id_rol que corresponda
+      let rolDefault = 2; // Puedes cambiar esto por el id_rol que corresponda
       let resUsuario = await this.database.executeSql(queryUsuario, [nombre_usuario, email, contrasena, rolDefault]);
       
       // El id del usuario insertado lo obtenemos de resUsuario.insertId
@@ -103,6 +105,37 @@ export class ServiciobdService {
       console.error('Error al registrar usuario y dirección:', error);
       throw new Error('Error en el registro');
     }
+  }
+
+  seleccionarUsuario(): Promise<void> {
+    const id_usuario = localStorage.getItem('id_usuario'); // Obtener el id del usuario logueado
+  
+    // Asegurarte de que siempre se retorna una promesa
+    return new Promise((resolve, reject) => {
+      if (id_usuario) {
+        this.database.executeSql("SELECT id_usuario, nombre_usuario, email FROM Usuario WHERE id_usuario = ?", [id_usuario])
+          .then(res => {
+            let items: Usuarios[] = [];
+            if (res.rows.length > 0) {
+              items.push({
+                id_usuario: res.rows.item(0).id_usuario,
+                nombre_usuario: res.rows.item(0).nombre_usuario,
+                email: res.rows.item(0).email,
+              });
+            }
+            console.log("Usuario logueado obtenido:", items[0]);
+            this.listadoUsuarios.next(items as any);
+            resolve(); // Resuelve la promesa exitosamente
+          })
+          .catch(e => {
+            console.error('Error al seleccionar usuario logueado: ', JSON.stringify(e));
+            reject(e); // Rechaza la promesa si hay un error
+          });
+      } else {
+        console.error('No se encontró el id_usuario del usuario logueado.');
+        reject('No se encontró el id_usuario del usuario logueado.'); // Rechaza si no hay id_usuario
+      }
+    });
   }
 
    // Método para ejecutar consultas SQL

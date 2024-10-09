@@ -20,32 +20,22 @@
 
     <hr>
 
-    <div class="contenedor-datos margin-auto" >
-      <div class="contenedor-flex espacio-precio letra-grande">
-        <p class="negrita2">Usuario:</p>
-        <p class="negrita">&nbsp;{{ arregloUsuarios.usuario }}</p> <!-- Muestra el nombre de usuario -->
-      </div>
+  
       
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">Correo:</p>
-        <p class="negrita">&nbsp;{{ arregloUsuarios.email }}</p> <!-- Muestra el correo electrónico -->
+      <div class="contenedor-datos margin-auto">
+        <div class="contenedor-flex espacio-precio letra-grande">
+          <p class="negrita2">Usuario:</p>
+          <p><strong>Nombre:</strong> {{ nombre_usuario }}</p>
+        </div>
+        <div class="contenedor-flex letra-grande espacio-precio">
+          <p class="negrita2">Correo:</p>
+          <p><strong>Email:</strong> {{ email }}</p>
+        </div>
+        <div class="contenedor-flex letra-grande espacio-precio">
+          <p class="negrita2">id:</p>
+          <p><strong>ID Usuario:</strong> {{ id_usuario }}</p>
+        </div>  
       </div>
-      
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">Ciudad:</p>
-        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.ciudad }}</p> <!-- Muestra la ciudad -->
-      </div>
-      
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">Calle:</p>
-        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.calle }}</p> <!-- Muestra la calle -->
-      </div>
-      
-      <div class="contenedor-flex letra-grande espacio-precio">
-        <p class="negrita2">Número domicilio:</p>
-        <p class="negrita margin-top">&nbsp;{{ arregloUsuarios.numeroDomicilio }}</p> <!-- Muestra el número del domicilio -->
-      </div>
-     
 
       <div class="centrar espacio-arriba">
         <ion-button (click)="cerrarSesion()">
@@ -57,9 +47,8 @@
           <ion-icon slot="start" name="log-out"></ion-icon>
           editar perfil
         </ion-button>
-      </div>
 
-    </div>
+      </div>
 
   </div>
 </ion-content>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { AlertController, Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Usuarios } from './usuarios';
+import { DatosDireccion, Usuarios } from './usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -136,6 +136,29 @@ export class ServiciobdService {
         reject('No se encontró el id_usuario del usuario logueado.'); // Rechaza si no hay id_usuario
       }
     });
+  }
+
+  async obtenerDireccionUsuario(id_usuario: number): Promise<DatosDireccion | null> {
+    try {
+      const query = `SELECT ciudad, calle, numero_domicilio FROM Direccion WHERE id_usuario = ?`;
+      const res = await this.database.executeSql(query, [id_usuario]);
+      
+      if (res.rows.length > 0) {
+        const direccion: DatosDireccion = {
+          ciudad: res.rows.item(0).ciudad,
+          calle: res.rows.item(0).calle,
+          numero_domicilio: res.rows.item(0).numero_domicilio,
+        };
+        console.log("Datos de la dirección obtenidos:", direccion);
+        return direccion;
+      } else {
+        console.log("No se encontró dirección para el usuario con id:", id_usuario);
+        return null;
+      }
+    } catch (error) {
+      console.error('Error al obtener dirección del usuario:', error);
+      throw new Error('Error en la consulta de dirección');
+    }
   }
 
    // Método para ejecutar consultas SQL

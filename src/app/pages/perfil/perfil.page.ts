@@ -20,6 +20,7 @@ export class PerfilPage implements OnInit {
   ciudad!: string;
   calle!: string;
   numero_domicilio!: string;
+  region!:string;
 
   constructor(
     private router: Router, 
@@ -57,6 +58,7 @@ export class PerfilPage implements OnInit {
         this.ciudad = direccion.ciudad;
         this.calle = direccion.calle;
         this.numero_domicilio = direccion.numero_domicilio;
+        this.region = direccion.region;
       }
     }).catch((error) => {
       console.error('Error al obtener la dirección del usuario:', error);

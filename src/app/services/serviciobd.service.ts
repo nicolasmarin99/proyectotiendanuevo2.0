@@ -140,7 +140,7 @@ export class ServiciobdService {
 
   async obtenerDireccionUsuario(id_usuario: number): Promise<DatosDireccion | null> {
     try {
-      const query = `SELECT ciudad, calle, numero_domicilio FROM Direccion WHERE id_usuario = ?`;
+      const query = `SELECT ciudad, calle, numero_domicilio,region FROM Direccion WHERE id_usuario = ?`;
       const res = await this.database.executeSql(query, [id_usuario]);
       
       if (res.rows.length > 0) {
@@ -148,6 +148,7 @@ export class ServiciobdService {
           ciudad: res.rows.item(0).ciudad,
           calle: res.rows.item(0).calle,
           numero_domicilio: res.rows.item(0).numero_domicilio,
+          region: res.rows.item(0).region,
         };
         console.log("Datos de la dirección obtenidos:", direccion);
         return direccion;

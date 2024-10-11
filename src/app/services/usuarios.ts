@@ -8,4 +8,5 @@ export class DatosDireccion {
     ciudad!:string;
     calle!: string;
     numero_domicilio!:string;
+    region!:string;
 }

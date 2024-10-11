@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { EditarperfilPageRoutingModule } from './editarperfil-routing.module';
 
-import { EditarperfilPage } from './editarperfil.page';
+import { EditarPerfilPage } from './editarperfil.page';
 import { Paquete1Module } from 'src/app/components/paquete1/paquete1.module';
 
 @NgModule({
@@ -17,6 +17,6 @@ import { Paquete1Module } from 'src/app/components/paquete1/paquete1.module';
     EditarperfilPageRoutingModule,
     Paquete1Module,
   ],
-  declarations: [EditarperfilPage]
+  declarations: [EditarPerfilPage]
 })
 export class EditarperfilPageModule {}

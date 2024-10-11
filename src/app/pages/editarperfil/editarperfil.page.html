@@ -8,6 +8,32 @@
 
 <ion-content [fullscreen]="true">
   <app-logo></app-logo>
+
+  <ion-content [fullscreen]="true">
+    <form (ngSubmit)="guardarCambios()">
+      <ion-item>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input [(ngModel)]="nombre_usuario" name="nombre_usuario" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Ciudad</ion-label>
+        <ion-input [(ngModel)]="ciudad" name="ciudad" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Calle</ion-label>
+        <ion-input [(ngModel)]="calle" name="calle" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Número de domicilio</ion-label>
+        <ion-input [(ngModel)]="numero_domicilio" name="numero_domicilio" required></ion-input>
+      </ion-item>
+  
+      <ion-button expand="full" type="submit">Guardar Cambios</ion-button>
+    </form>
+  </ion-content>
 </ion-content>
 
 <ion-footer>

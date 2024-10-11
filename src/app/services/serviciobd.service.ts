@@ -161,6 +161,23 @@ export class ServiciobdService {
     }
   }
 
+  async actualizarUsuario(id_usuario: number, nombre_usuario: string, ciudad: string, calle: string, numero_domicilio: string) {
+    try {
+      // Actualizar el nombre del usuario
+      let queryUsuario = `UPDATE Usuario SET nombre_usuario = ? WHERE id_usuario = ?`;
+      await this.database.executeSql(queryUsuario, [nombre_usuario, id_usuario]);
+  
+      // Actualizar la dirección
+      let queryDireccion = `UPDATE Direccion SET ciudad = ?, calle = ?, numero_domicilio = ? WHERE id_usuario = ?`;
+      await this.database.executeSql(queryDireccion, [ciudad, calle, numero_domicilio, id_usuario]);
+  
+      console.log('Usuario y dirección actualizados correctamente.');
+    } catch (error) {
+      console.error('Error al actualizar el perfil:', error);
+      throw new Error('Error en la actualización');
+    }
+  }
+
    // Método para ejecutar consultas SQL
   async executeQuery(query: string, params: any[] = []): Promise<any> {
     return new Promise((resolve, reject) => {

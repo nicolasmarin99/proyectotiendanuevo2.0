@@ -30,6 +30,26 @@
         <ion-label position="floating">Número de domicilio</ion-label>
         <ion-input [(ngModel)]="numero_domicilio" name="numero_domicilio" required></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-select label="seleccione su region" label-placement="floating" fill="solid" [(ngModel)]="region">
+          <ion-select-option value="arica y parinacota">arica y parinacota</ion-select-option>
+          <ion-select-option value="region de antofagasta">region de antofagasta</ion-select-option>
+          <ion-select-option value="region de atacama">region de atacama</ion-select-option>
+          <ion-select-option value="region de coquimbo">region de coquimbo</ion-select-option>
+          <ion-select-option value="region de valparaiso">region de valparaiso</ion-select-option>
+          <ion-select-option value="region metropolitana">region metropolitana</ion-select-option>
+          <ion-select-option value="region de Ohiggins">region de Ohiggins</ion-select-option>
+          <ion-select-option value="region del maule">region del maule</ion-select-option>
+          <ion-select-option value="region de ñuble">region de ñuble</ion-select-option>
+          <ion-select-option value="region del bio bio">region del bio bio</ion-select-option>
+          <ion-select-option value="region de la araucania">region de la araucania</ion-select-option>
+          <ion-select-option value="region de los lagos">region de los lagos</ion-select-option>
+          <ion-select-option value="region de los rios">region de los rios</ion-select-option>
+          <ion-select-option value="region de aysen">region de aysen</ion-select-option>
+          <ion-select-option value="region de magallanes">region de magallanes</ion-select-option>   
+        </ion-select>
+      </ion-item>
   
       <ion-button expand="full" type="submit">Guardar Cambios</ion-button>
     </form>

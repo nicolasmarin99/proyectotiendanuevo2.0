@@ -16,6 +16,7 @@ export class EditarPerfilPage implements OnInit {
   ciudad!: string;
   calle!: string;
   numero_domicilio!: string;
+  region!:string;
   usuario: any;
 
   constructor(
@@ -43,6 +44,7 @@ export class EditarPerfilPage implements OnInit {
               this.ciudad = direccion.ciudad;
               this.calle = direccion.calle;
               this.numero_domicilio = direccion.numero_domicilio;
+              this.region = direccion.region;
             }
           });
         }
@@ -52,7 +54,7 @@ export class EditarPerfilPage implements OnInit {
 
   // Función para guardar los cambios en la base de datos
   guardarCambios() {
-    this.dbService.actualizarUsuario(this.id_usuario, this.nombre_usuario, this.ciudad, this.calle, this.numero_domicilio).then(() => {
+    this.dbService.actualizarUsuario(this.id_usuario, this.nombre_usuario, this.ciudad, this.calle, this.numero_domicilio,this.region).then(() => {
       this.presentAlert('Éxito', 'Los cambios han sido guardados.');
       this.router.navigate(['/perfil']); // Redirige de vuelta a la página de perfil
     }).catch(error => {

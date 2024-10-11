@@ -17,6 +17,9 @@ export class EditarPerfilPage implements OnInit {
   calle!: string;
   numero_domicilio!: string;
   region!:string;
+  contraseña!:string
+  contrasenaActual!: string;  // Nueva variable para la contraseña actual
+  nueva_contrasena!: string;  // Nueva variable para la nueva contraseña
   usuario: any;
 
   constructor(
@@ -37,6 +40,7 @@ export class EditarPerfilPage implements OnInit {
           const usuario = usuarios[0];
           this.id_usuario = usuario.id_usuario;
           this.nombre_usuario = usuario.nombre_usuario;
+          this.contraseña = usuario.contraseña;
           
           // Llamar a la función para obtener la dirección del usuario
           this.dbService.obtenerDireccionUsuario(this.id_usuario).then((direccion) => {
@@ -52,16 +56,21 @@ export class EditarPerfilPage implements OnInit {
     });
   }
 
-  // Función para guardar los cambios en la base de datos
-  guardarCambios() {
-    this.dbService.actualizarUsuario(this.id_usuario, this.nombre_usuario, this.ciudad, this.calle, this.numero_domicilio,this.region).then(() => {
+ // Validar contraseña actual antes de guardar cambios
+guardarCambios() {
+  if (this.contrasenaActual === this.contraseña) {
+    const nuevaContraseña = this.nueva_contrasena ? this.nueva_contrasena : this.contraseña;
+    this.dbService.actualizarUsuario(this.id_usuario, this.nombre_usuario, this.ciudad, this.calle, this.numero_domicilio, this.region, nuevaContraseña).then(() => {
       this.presentAlert('Éxito', 'Los cambios han sido guardados.');
-      this.router.navigate(['/perfil']); // Redirige de vuelta a la página de perfil
+      this.router.navigate(['/perfil']);
     }).catch(error => {
       console.error('Error al actualizar el perfil:', error);
       this.presentAlert('Error', 'Hubo un problema al guardar los cambios.');
     });
+  } else {
+    this.presentAlert('Error', 'La contraseña actual no es correcta.');
   }
+}
 
   async presentAlert(titulo: string, msj: string) {
     const alert = await this.alertController.create({

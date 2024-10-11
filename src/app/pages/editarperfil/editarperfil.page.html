@@ -50,6 +50,19 @@
           <ion-select-option value="region de magallanes">region de magallanes</ion-select-option>   
         </ion-select>
       </ion-item>
+
+      <!-- Campo para la contraseña actual -->
+      <ion-item>
+        <ion-label position="floating">Contraseña actual</ion-label>
+        <ion-input [(ngModel)]="contrasenaActual" name="contrasenaActual" type="password" required></ion-input>
+      </ion-item>
+
+      <!-- Campo para la nueva contraseña -->
+      <ion-item>
+        <ion-label position="floating">Nueva contraseña</ion-label>
+        <ion-input [(ngModel)]="nueva_contrasena" name="nueva_contrasena" type="password"></ion-input>
+      </ion-item>
+
   
       <ion-button expand="full" type="submit">Guardar Cambios</ion-button>
     </form>

@@ -113,7 +113,7 @@ export class ServiciobdService {
     // Asegurarte de que siempre se retorna una promesa
     return new Promise((resolve, reject) => {
       if (id_usuario) {
-        this.database.executeSql("SELECT id_usuario, nombre_usuario, email FROM Usuario WHERE id_usuario = ?", [id_usuario])
+        this.database.executeSql("SELECT id_usuario, nombre_usuario, email, contraseña FROM Usuario WHERE id_usuario = ?", [id_usuario])
           .then(res => {
             let items: Usuarios[] = [];
             if (res.rows.length > 0) {
@@ -121,6 +121,7 @@ export class ServiciobdService {
                 id_usuario: res.rows.item(0).id_usuario,
                 nombre_usuario: res.rows.item(0).nombre_usuario,
                 email: res.rows.item(0).email,
+                contraseña: res.rows.item(0).contraseña,
               });
             }
             console.log("Usuario logueado obtenido:", items[0]);
@@ -162,11 +163,11 @@ export class ServiciobdService {
     }
   }
 
-  async actualizarUsuario(id_usuario: number, nombre_usuario: string, ciudad: string, calle: string, numero_domicilio: string, region:string) {
+  async actualizarUsuario(id_usuario: number, nombre_usuario: string, ciudad: string, calle: string, numero_domicilio: string, region:string, contraseña:string) {
     try {
       // Actualizar el nombre del usuario
-      let queryUsuario = `UPDATE Usuario SET nombre_usuario = ? WHERE id_usuario = ?`;
-      await this.database.executeSql(queryUsuario, [nombre_usuario, id_usuario]);
+      let queryUsuario = `UPDATE Usuario SET nombre_usuario = ?, contraseña = ? WHERE id_usuario = ?`;
+      await this.database.executeSql(queryUsuario, [nombre_usuario,contraseña, id_usuario]);
   
       // Actualizar la dirección
       let queryDireccion = `UPDATE Direccion SET ciudad = ?, calle = ?, numero_domicilio = ?, region = ? WHERE id_usuario = ?`;

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ServiciobdService } from 'src/app/services/serviciobd.service';
+import { Camera, CameraResultType } from '@capacitor/camera';
+
+
 
 @Component({
   selector: 'app-agregarzapa',
@@ -14,6 +17,8 @@ export class AgregarzapaPage implements OnInit {
   cantidad: number = 0;
   talla: string = '';
   marca: string = '';
+  precio: number=0;
+  imagen: string | undefined; // Asegúrate de que esto está en tu clase // Aquí se almacenará la imagen seleccionada
   usuarioRol: number | null = null; // Aquí se almacenará el rol del usuario
 
   constructor(private router: Router,private alertController: AlertController, private dbService:ServiciobdService) { }
@@ -30,6 +35,21 @@ export class AgregarzapaPage implements OnInit {
     await alert.present();
   }
 
+  async tomarFoto() {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.Uri,
+      });
+  
+      const imageUrl = image.webPath; // URL local de la imagen
+      this.imagen = imageUrl; // Asigna la URL a this.imagen
+    } catch (error) {
+      console.error('Error al tomar la foto:', error);
+    }
+  }
+
   ionViewDidEnter() {
     const id_usuario = localStorage.getItem('id_usuario');
     if (id_usuario) {
@@ -41,16 +61,21 @@ export class AgregarzapaPage implements OnInit {
     }
   }
 
-  validarZapatilla(){
-    if((this.zapatilla == '' ) || (this.cantidad == null) || (this.talla == '' ) || (this.marca == '' )){
-      this.presentAlert('Error','Los campos no pueden estar vacios.')
-    }
-    else if(this.cantidad < 0){
-      this.presentAlert('Error','La cantidad debe ser un numero positivo.')
-    }
-    else{
-      this.presentAlert('Exito','La zapatilla ha sido ingresada correctamente.')
-      this.router.navigate(['/zapatillasad'])
+  validarZapatilla() { 
+    if (this.zapatilla && this.cantidad && this.precio && this.talla && this.marca) {
+      // Asegúrate de que this.imagen tenga un valor definido
+      const imagenProducto = this.imagen ? this.imagen : ''; // Asigna un valor por defecto si es undefined
+  
+      this.dbService.agregarProducto(this.zapatilla, this.marca, this.talla, this.precio, this.cantidad, imagenProducto)
+        .then(() => {
+          console.log('Producto agregado con éxito');
+          // Puedes hacer algo después de agregar el producto, como redirigir o mostrar un mensaje
+        })
+        .catch((error) => {
+          console.error('Error al agregar el producto:', error);
+        });
+    } else {
+      console.log('Por favor, completa todos los campos.');
     }
   }
 }

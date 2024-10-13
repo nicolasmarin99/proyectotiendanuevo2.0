@@ -19,7 +19,7 @@ export class ServiciobdService {
 
   tablaDirecciones:string = "CREATE TABLE IF NOT EXISTS Direccion (id_direccion INTEGER PRIMARY KEY AUTOINCREMENT,id_usuario INTEGER, region TEXT NOT NULL,ciudad TEXT NOT NULL,calle TEXT NOT NULL,tipo_domicilio TEXT NOT NULL, numero_domicilio TEXT NOT NULL,FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario));";
 
-  tablaProductos:string = "CREATE TABLE IF NOT EXISTS Producto (id_producto INTEGER PRIMARY KEY AUTOINCREMENT,nombre_producto TEXT NOT NULL, marca TEXT NOT NULL,talla TEXT NOT NULL,precio REAL NOT NULL, imagen_producto TEXT);";
+  tablaProductos:string = "CREATE TABLE IF NOT EXISTS Producto (id_producto INTEGER PRIMARY KEY AUTOINCREMENT,nombre_producto TEXT NOT NULL, marca TEXT NOT NULL,talla TEXT NOT NULL,precio REAL NOT NULL, cantidad INTEGER NOT NULL, imagen_producto TEXT);";
 
   tablaCompras:string ="CREATE TABLE IF NOT EXISTS Compra (id_compra INTEGER PRIMARY KEY AUTOINCREMENT,id_usuario INTEGER,fecha_compra TEXT NOT NULL,precio_total REAL NOT NULL,FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario));";
 
@@ -225,6 +225,13 @@ export class ServiciobdService {
     }
   }
 
+  async agregarProducto(nombre_producto: string, marca: string, talla: string, precio: number, cantidad: number, imagen_producto: string) {
+    const query = `
+      INSERT INTO Producto (nombre_producto, marca, talla, precio, cantidad, imagen_producto) 
+      VALUES (?, ?, ?, ?, ?, ?)
+    `;
+    await this.database.executeSql(query, [nombre_producto, marca, talla, precio, cantidad, imagen_producto]);
+  }
    // Método para ejecutar consultas SQL
   async executeQuery(query: string, params: any[] = []): Promise<any> {
     return new Promise((resolve, reject) => {

@@ -19,6 +19,10 @@
 
         <br>
 
+        <ion-input label="precio" label-placement="floating" fill="outline" type="Number" placeholder="Ingrese el precio." [(ngModel)]="precio"></ion-input>
+
+        <br>
+
         <div class="margin-auto">
           <ion-list class="sin-padding">
             <ion-item class="fondo">
@@ -57,9 +61,16 @@
           <img src="../../../assets/agregar imagen.jpg" alt="" class="tamano-imagen">
         </div>
 
-      </div>
+        <!-- Botón para elegir imagen de la galería -->
+        <ion-button (click)="tomarFoto()">Seleccionar Imagen</ion-button>
+        <!-- Mostrar la imagen seleccionada -->
+        <div class="contenedor-imagen margin-auto centrar">
+          <img *ngIf="imagen" [src]="imagen" alt="Imagen de la zapatilla" class="tamano-imagen">
+        </div>
 
-      
+        
+
+      </div>
     </div>
   </div>
 

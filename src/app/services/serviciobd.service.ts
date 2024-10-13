@@ -78,11 +78,39 @@ export class ServiciobdService {
     await this.database.executeSql(this.tablaCompras, []);
     await this.database.executeSql(this.tablaDetallesCompra, []);
 
+    // Inserta el usuario administrador
+    await this.insertarAdministrador();
+
     this.seleccionarUsuario();
 
     this.isDBReady.next(true);
     }catch(e){
       this.presentAlert('Creación de Tablas', 'Error en crear las tablas: ' + JSON.stringify(e));
+    }
+  }
+
+  async insertarAdministrador() {
+    try {
+      const nombre_usuario = "administrador";
+      const email = "admin@example.com"; // Puedes cambiar el correo si lo deseas
+      const contrasena = "Administrador1@";
+      const id_rol = 1; // Se asume que el rol de administrador es 1
+  
+      // Primero insertamos en la tabla Usuario
+      let queryUsuario = `INSERT INTO Usuario (nombre_usuario, email, contraseña, id_rol) VALUES (?, ?, ?, ?)`;
+      let resUsuario = await this.database.executeSql(queryUsuario, [nombre_usuario, email, contrasena, id_rol]);
+      
+      let idUsuario = resUsuario.insertId; // El ID del usuario recién insertado
+  
+      // Luego insertamos una dirección ficticia en la tabla Direccion
+      let queryDireccion = `INSERT INTO Direccion (id_usuario, region, ciudad, calle, tipo_domicilio, numero_domicilio) VALUES (?, ?, ?, ?, ?, ?)`;
+      let direccionValues = [idUsuario, "Metropolitana", "Santiago", "Calle Falsa", "Casa", "123"];
+      await this.database.executeSql(queryDireccion, direccionValues);
+  
+      console.log("Administrador insertado exitosamente con ID:", idUsuario);
+    } catch (error) {
+      console.error('Error al insertar administrador:', error);
+      throw new Error('Error en la inserción del administrador');
     }
   }
 
@@ -177,6 +205,23 @@ export class ServiciobdService {
     } catch (error) {
       console.error('Error al actualizar el perfil:', error);
       throw new Error('Error en la actualización');
+    }
+  }
+
+  async obtenerRolUsuario(id_usuario: number): Promise<number | null> {
+    try {
+      const query = `SELECT id_rol FROM Usuario WHERE id_usuario = ?`;
+      const res = await this.database.executeSql(query, [id_usuario]);
+      if (res.rows.length > 0) {
+        const id_rol = res.rows.item(0).id_rol;
+        return id_rol;
+      } else {
+        console.log("No se encontró el rol para el usuario con id:", id_usuario);
+        return null;
+      }
+    } catch (error) {
+      console.error('Error al obtener el rol del usuario:', error);
+      throw new Error('Error en la consulta de rol');
     }
   }
 

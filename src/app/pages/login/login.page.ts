@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/autentificacion.service'; // Asegúrate de que la ruta sea correcta
+import { ServiciobdService } from 'src/app/services/serviciobd.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,13 @@ import { AuthService } from 'src/app/services/autentificacion.service'; // Aseg�
 export class LoginPage implements OnInit {
   usuario1: string = '';
   contrasena1: string = '';
+  usuarioRol: number | null = null; // Aquí se almacenará el rol del usuario
 
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private authService: AuthService // Inyecta el servicio de autenticación
+    private authService: AuthService, // Inyecta el servicio de autenticación
+    private dbService:ServiciobdService
   ) {}
 
   ngOnInit() {}
@@ -27,6 +30,17 @@ export class LoginPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  ionViewDidEnter() {
+    const id_usuario = localStorage.getItem('id_usuario');
+    if (id_usuario) {
+      this.dbService.obtenerRolUsuario(Number(id_usuario)).then(rol => {
+        this.usuarioRol = rol;
+      }).catch(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+      });
+    }
   }
 
   async validarUsuario() {

@@ -19,6 +19,7 @@ export class RegistrarPage implements OnInit {
   calle: string = "";
   tipodomicilio: string = "";
   numerodomicilio: string = "";
+  usuarioRol: number | null = null; // Aquí se almacenará el rol del usuario
 
   constructor(private router: Router, private alertController: AlertController,private dbService:ServiciobdService) { }
 
@@ -31,6 +32,17 @@ export class RegistrarPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  ionViewDidEnter() {
+    const id_usuario = localStorage.getItem('id_usuario');
+    if (id_usuario) {
+      this.dbService.obtenerRolUsuario(Number(id_usuario)).then(rol => {
+        this.usuarioRol = rol;
+      }).catch(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+      });
+    }
   }
 
   validarRegistro() {

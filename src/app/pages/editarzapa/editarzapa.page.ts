@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ServiciobdService } from 'src/app/services/serviciobd.service';
 
 @Component({
   selector: 'app-editarzapa',
@@ -13,8 +14,9 @@ export class EditarzapaPage implements OnInit {
   cantidad: number = 0;
   talla: string = '';
   marca: string = '';
+  usuarioRol: number | null = null; // Aquí se almacenará el rol del usuario
 
-  constructor(private router: Router,private alertController: AlertController) { }
+  constructor(private router: Router,private alertController: AlertController,private dbService:ServiciobdService) { }
 
   ngOnInit() {
   }
@@ -26,6 +28,17 @@ export class EditarzapaPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  ionViewDidEnter() {
+    const id_usuario = localStorage.getItem('id_usuario');
+    if (id_usuario) {
+      this.dbService.obtenerRolUsuario(Number(id_usuario)).then(rol => {
+        this.usuarioRol = rol;
+      }).catch(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+      });
+    }
   }
 
   validarZapatilla(){

@@ -21,6 +21,7 @@ export class EditarPerfilPage implements OnInit {
   contrasenaActual!: string;  // Nueva variable para la contraseña actual
   nueva_contrasena!: string;  // Nueva variable para la nueva contraseña
   usuario: any;
+  usuarioRol: number | null = null; // Aquí se almacenará el rol del usuario
 
   constructor(
     private router: Router, 
@@ -30,6 +31,17 @@ export class EditarPerfilPage implements OnInit {
 
   ngOnInit() {
     this.cargarDatosUsuario();
+  }
+
+  ionViewDidEnter() {
+    const id_usuario = localStorage.getItem('id_usuario');
+    if (id_usuario) {
+      this.dbService.obtenerRolUsuario(Number(id_usuario)).then(rol => {
+        this.usuarioRol = rol;
+      }).catch(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+      });
+    }
   }
 
   // Cargar los datos del usuario desde la base de datos

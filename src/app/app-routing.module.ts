@@ -57,7 +57,7 @@ const routes: Routes = [
   },
   {
     path: 'agregarzapa',
-    loadChildren: () => import('./pages/agregarzapa/agregarzapa.module').then( m => m.AgregarzapaPageModule)
+    loadChildren: () => import('./pages/agregarzapa/agregarzapa.module').then( m => m.AgregarZapaPageModule)
   },
   {
     path: 'login',

@@ -24,6 +24,8 @@ export class ServiciobdService {
   tablaCompras:string ="CREATE TABLE IF NOT EXISTS Compra (id_compra INTEGER PRIMARY KEY AUTOINCREMENT,id_usuario INTEGER,fecha_compra TEXT NOT NULL,precio_total REAL NOT NULL,FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario));";
 
   tablaDetallesCompra:string ="CREATE TABLE IF NOT EXISTS DetalleCompra (id_detalle INTEGER PRIMARY KEY AUTOINCREMENT,id_compra INTEGER,id_producto INTEGER,cantidad INTEGER NOT NULL,talla TEXT NOT NULL,precio_unitario REAL NOT NULL,FOREIGN KEY (id_compra) REFERENCES Compra(id_compra), FOREIGN KEY (id_producto) REFERENCES Producto(id_producto));";
+
+  nuevaTablaProductos:string = `CREATE TABLE IF NOT EXISTS Producto (id_producto INTEGER PRIMARY KEY AUTOINCREMENT,nombre_producto TEXT NOT NULL,marca TEXT NOT NULL,talla TEXT NOT NULL,precio REAL NOT NULL, cantidad INTEGER NOT NULL,imagen_producto BLOB);`;
   
   //variables para guardar los datos de las consultas en las tablas
   listadoUsuarios = new BehaviorSubject([]);
@@ -77,6 +79,7 @@ export class ServiciobdService {
     await this.database.executeSql(this.tablaProductos, []);
     await this.database.executeSql(this.tablaCompras, []);
     await this.database.executeSql(this.tablaDetallesCompra, []);
+    await this.recrearTablaProductos()
 
     // Inserta el usuario administrador
     await this.insertarAdministrador();
@@ -225,12 +228,13 @@ export class ServiciobdService {
     }
   }
 
-  async agregarProducto(nombre_producto: string, marca: string, talla: string, precio: number, cantidad: number, imagen_producto: string) {
+  async agregarProducto(nombre_producto: string, marca: string, talla: string, precio: number, cantidad: number, imagen_producto: Blob) {
     const query = `
       INSERT INTO Producto (nombre_producto, marca, talla, precio, cantidad, imagen_producto) 
       VALUES (?, ?, ?, ?, ?, ?)
     `;
-    await this.database.executeSql(query, [nombre_producto, marca, talla, precio, cantidad, imagen_producto]);
+    const blob = new Blob([imagen_producto]);
+    await this.database.executeSql(query, [nombre_producto, marca, talla, precio, cantidad, blob]);
   }
    // Método para ejecutar consultas SQL
   async executeQuery(query: string, params: any[] = []): Promise<any> {
@@ -244,6 +248,40 @@ export class ServiciobdService {
   public getDatabase(): Promise<SQLiteObject> {
     return Promise.resolve(this.database);
   }
+
+  async recrearTablaProductos() {
+    try {
+      // Eliminar la tabla existente si es que ya existe
+      console.log("Eliminando la tabla Producto si existe...");
+      await this.database.executeSql("DROP TABLE IF EXISTS Producto", []);
+      console.log("Tabla Producto eliminada (si existía).");
+  
+      // Crear la nueva tabla con el campo "imagen_producto" de tipo BLOB
+      const nuevaTablaProductos = `
+        CREATE TABLE IF NOT EXISTS Producto (
+          id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+          nombre_producto TEXT NOT NULL,
+          marca TEXT NOT NULL,
+          talla TEXT NOT NULL,
+          precio REAL NOT NULL,
+          cantidad INTEGER NOT NULL,
+          imagen_producto BLOB
+        );
+      `;
+      
+      console.log("Creando la nueva tabla Producto...");
+      await this.database.executeSql(nuevaTablaProductos, []);
+      console.log("Tabla Producto recreada con éxito.");
+      
+      // Mostrar alerta indicando que el cambio se realizó con éxito
+      await this.presentAlert('Base de datos actualizada', 'El cambio en la tabla Producto fue realizado con éxito.');
+  
+    } catch (error:any) {
+      console.error('Error al recrear la tabla Producto:', error);
+      this.presentAlert('Error', 'Hubo un error al recrear la tabla Producto: ' + error.message);
+    }
+  }
+  
 }
 
 

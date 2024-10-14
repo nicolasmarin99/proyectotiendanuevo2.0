@@ -9,17 +9,16 @@
       <br>
       <app-logo></app-logo>
 
-      
       <div class="contenedor-input margin-auto">
         <ion-input label="Nombre zapatilla" label-placement="floating" fill="outline" type="text" placeholder="Ingrese el nombre de la zapatilla." [(ngModel)]="zapatilla"></ion-input>
 
         <br>
 
-        <ion-input label="Cantidad" label-placement="floating" fill="outline" type="Number" placeholder="Ingrese la cantidad." [(ngModel)]="cantidad"></ion-input>
+        <ion-input label="Cantidad" label-placement="floating" fill="outline" type="number" placeholder="Ingrese la cantidad." [(ngModel)]="cantidad"></ion-input>
 
         <br>
 
-        <ion-input label="precio" label-placement="floating" fill="outline" type="Number" placeholder="Ingrese el precio." [(ngModel)]="precio"></ion-input>
+        <ion-input label="Precio" label-placement="floating" fill="outline" type="number" placeholder="Ingrese el precio." [(ngModel)]="precio"></ion-input>
 
         <br>
 
@@ -56,40 +55,27 @@
 
         <br>
 
-        subir imagen de la zapatilla:
-        <div class="contenedor-imagen margin-auto centrar">
-          <img src="../../../assets/agregar imagen.jpg" alt="" class="tamano-imagen">
-        </div>
-
         <!-- Botón para elegir imagen de la galería -->
         <ion-button (click)="tomarFoto()">Seleccionar Imagen</ion-button>
         <!-- Mostrar la imagen seleccionada -->
         <div class="contenedor-imagen margin-auto centrar">
-          <img *ngIf="imagen" [src]="imagen" alt="Imagen de la zapatilla" class="tamano-imagen">
+          <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Imagen de la zapatilla" class="tamano-imagen">
         </div>
-
-        
 
       </div>
     </div>
   </div>
 
   <div class="contenedor-input margin-auto centrar">
-    <ion-button class="color" (click)="validarZapatilla()">
+    <ion-button class="color" (click)="agregarZapatilla()">
       <ion-icon slot="start" name="add"></ion-icon>
       Agregar
     </ion-button>
   </div>
 
-
 </ion-content>
 
 <ion-footer>
-
-      <!-- Mostrar para usuarios con rol 2 -->
-      <app-barrafooter *ngIf="usuarioRol === 2"></app-barrafooter>
-
-      <!-- Mostrar para otros roles o si el rol no se ha cargado -->
-      <app-barrafooter2 *ngIf="usuarioRol === 1"></app-barrafooter2>
-  
+  <app-barrafooter *ngIf="usuarioRol === 2"></app-barrafooter>
+  <app-barrafooter2 *ngIf="usuarioRol === 1"></app-barrafooter2>
 </ion-footer>
